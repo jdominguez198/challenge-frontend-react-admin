@@ -12,6 +12,7 @@ import Icon from '@material-ui/core/Icon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { useStyles } from '../../hooks/useStyles';
 import { setDrawerPanelOpen } from '../../store/ui/actions';
+import { resetUser } from '../../store/user/actions';
 import LogOutMenuItem from '../LogOutMenuItem/LogOutMenuItem';
 
 const navigationItems = [
@@ -26,9 +27,13 @@ export default function Navigation() {
   const dispatch = useDispatch();
   const { drawerPanelOpen } = useSelector((state: any) => state.ui);
 
+  const handleLogOutUser = () => {
+    dispatch(resetUser());
+  };
+
   const handleDrawerClose = () => {
     dispatch(setDrawerPanelOpen(false));
-  }
+  };
 
   const drawer = (
     <div>
@@ -49,7 +54,7 @@ export default function Navigation() {
             </ListItem>
           </NavLink>
         ))}
-        <LogOutMenuItem onClick={handleDrawerClose} />
+        <LogOutMenuItem logOutUser={handleLogOutUser} onClick={handleDrawerClose} />
       </List>
     </div>
   );

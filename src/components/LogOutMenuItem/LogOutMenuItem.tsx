@@ -1,6 +1,4 @@
-import { useDispatch } from 'react-redux';
 import { GoogleLogout } from 'react-google-login';
-import { resetUser } from '../../store/user/actions';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Icon from '@material-ui/core/Icon';
@@ -8,10 +6,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import globalConfig from '../../config';
 
 export default function LogOutMenuItem(props: any) {
-  const dispatch = useDispatch();
 
   const onSuccess = () => {
-    dispatch(resetUser());
+    props.logOutUser();
   };
 
   const handleClick = (externalOnClick: any) => () => {
