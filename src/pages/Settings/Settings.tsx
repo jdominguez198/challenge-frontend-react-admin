@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSettingsItems } from '../../store/dummy/actions';
+import SettingsItemList from '../../components/SettingsItemList/SettingsItemList';
 
 function Settings() {
   const { settingsItems } = useSelector((state: any) => state.dummy);
@@ -14,7 +15,7 @@ function Settings() {
 
   return (
     <div className="page page__settings">
-      <p>This is the Settings page</p>
+      <SettingsItemList items={settingsItems} />
     </div>
   );
 }
