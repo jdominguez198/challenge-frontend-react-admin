@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
-
+import { useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -17,44 +16,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-// This styles are from Material UI drawer example
-const drawerWidth = 240;
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-    },
-    drawer: {
-      [theme.breakpoints.up('sm')]: {
-        width: drawerWidth,
-        flexShrink: 0,
-      },
-    },
-    grow: {
-      flexGrow: 1,
-    },
-    appBar: {
-      [theme.breakpoints.up('sm')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-      },
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      },
-    },
-    toolbar: theme.mixins.toolbar,
-    drawerPaper: {
-      width: drawerWidth,
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-    },
-  }),
-);
+import LogOutMenuItem from '../LogOutMenuItem/LogOutMenuItem';
+import { useStyles } from '../../hooks/useStyles';
 
 export default function AdminLayout({ children }: any) {
   const classes = useStyles();
@@ -77,13 +40,14 @@ export default function AdminLayout({ children }: any) {
       <Divider />
       <List>
         {navigationItems.map((navigationItem, index) => (
-          <NavLink exact to={`/${navigationItem.slug}`} key={navigationItem.slug}>
+          <NavLink exact to={`/${navigationItem.slug}`} key={navigationItem.slug} className={classes.menuLinks}>
             <ListItem button>
               <ListItemIcon><Icon>{navigationItem.icon}</Icon></ListItemIcon>
               <ListItemText primary={navigationItem.label} />
             </ListItem>
           </NavLink>
         ))}
+        <LogOutMenuItem />
       </List>
     </div>
   );
