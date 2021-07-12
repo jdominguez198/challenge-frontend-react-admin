@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDashboardItems } from '../../store/dummy/actions';
+import DashboardItemsList from '../../components/DashboardItemsList/DashboardItemsList';
 
 function Dashboard() {
   const { dashboardItems } = useSelector((state: any) => state.dummy);
@@ -14,7 +15,7 @@ function Dashboard() {
 
   return (
     <div className="page page__dashboard">
-      <p>This is the Dashboard page</p>
+      <DashboardItemsList items={dashboardItems} />
     </div>
   );
 }

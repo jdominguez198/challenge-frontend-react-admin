@@ -50,6 +50,14 @@ export const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    dashboardItemsList: {
+      display: 'grid',
+      gridGap: theme.spacing(4),
+      gridTemplateColumns: '1fr',
+      [theme.breakpoints.up('sm')]: {
+        gridTemplateColumns: 'repeat(4, 1fr)'
+      }
+    },
     loginPage: {
       height: '100vh',
       display: 'flex',
