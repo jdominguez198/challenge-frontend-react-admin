@@ -14,6 +14,13 @@ The time estimated to complete this challenge is about 3-4 hours.
 yarn install
 ```
 
+### Set environment variables
+
+Copy `.env.sample` to `.env` file and set the following variables with your own values:
+
+- `REACT_APP_GOOGLE_OAUTH_ID` => Google OAuth Client ID generated from [here](https://console.cloud.google.com/apis/credentials)
+- `REACT_APP_HASH_VERSION` => A random hash to use it for caching the current version state
+
 ### Start in development mode
 
 ```
