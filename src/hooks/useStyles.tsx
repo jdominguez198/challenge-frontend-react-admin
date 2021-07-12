@@ -22,6 +22,13 @@ export const useStyles = makeStyles((theme: Theme) =>
         marginLeft: drawerWidth,
       },
     },
+    menuAvatarWrapper: {
+      display: 'flex',
+      alignItems: 'center'
+    },
+    menuAvatarImage: {
+      marginRight: theme.spacing(1)
+    },
     menuLinks: {
       textDecoration: 'none',
       color: 'inherit',

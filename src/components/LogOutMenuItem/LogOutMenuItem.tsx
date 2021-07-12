@@ -7,24 +7,24 @@ import Icon from '@material-ui/core/Icon';
 import ListItemText from '@material-ui/core/ListItemText';
 import globalConfig from '../../config';
 
-export default function LogOutMenuItem() {
+export default function LogOutMenuItem(props: any) {
   const dispatch = useDispatch();
 
   const onSuccess = () => {
     dispatch(resetUser());
   };
 
-  const onFailure = () => {
-    console.error('LOGOUT_ERROR!');
-  }
+  const handleClick = (externalOnClick: any) => () => {
+    externalOnClick();
+    props.onClick();
+  };
 
   return (
     <GoogleLogout
       clientId={globalConfig.googleOAuthClientId}
       onLogoutSuccess={onSuccess}
-      onFailure={onFailure}
       render={renderProps => (
-        <ListItem button onClick={renderProps.onClick} disabled={renderProps.disabled}>
+        <ListItem button onClick={handleClick(renderProps.onClick)} disabled={renderProps.disabled}>
           <ListItemIcon><Icon>exit_to_app</Icon></ListItemIcon>
           <ListItemText primary="LogOut" />
         </ListItem>
