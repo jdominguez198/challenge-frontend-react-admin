@@ -1,18 +1,18 @@
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
-import React from "react";
-import {useStyles} from "../../hooks/useStyles";
-import {useTheme} from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import {NavLink} from "react-router-dom";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Icon from "@material-ui/core/Icon";
-import ListItemText from "@material-ui/core/ListItemText";
-import LogOutMenuItem from "../LogOutMenuItem/LogOutMenuItem";
-import {useDispatch, useSelector} from 'react-redux';
-import {setDrawerPanelOpen} from "../../store/ui/actions";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import Hidden from '@material-ui/core/Hidden';
+import Drawer from '@material-ui/core/Drawer';
+import { useTheme } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Icon from '@material-ui/core/Icon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { useStyles } from '../../hooks/useStyles';
+import { setDrawerPanelOpen } from '../../store/ui/actions';
+import LogOutMenuItem from '../LogOutMenuItem/LogOutMenuItem';
 
 const navigationItems = [
   { label: 'Dashboard', slug: 'dashboard', icon: 'space_dashboard' },
@@ -25,10 +25,6 @@ export default function Navigation() {
 
   const dispatch = useDispatch();
   const { drawerPanelOpen } = useSelector((state: any) => state.ui);
-
-  const handleDrawerToggle = () => {
-    dispatch(setDrawerPanelOpen(!drawerPanelOpen));
-  };
 
   const handleDrawerClose = () => {
     dispatch(setDrawerPanelOpen(false));
