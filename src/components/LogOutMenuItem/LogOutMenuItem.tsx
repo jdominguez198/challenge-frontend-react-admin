@@ -5,8 +5,12 @@ import Icon from '@material-ui/core/Icon';
 import ListItemText from '@material-ui/core/ListItemText';
 import globalConfig from '../../config';
 
-export default function LogOutMenuItem(props: any) {
+interface ILogOutMenuItemProps {
+  logOutUser: any;
+  onClick: any;
+}
 
+export default function LogOutMenuItem(props: ILogOutMenuItemProps) {
   const onSuccess = () => {
     props.logOutUser();
   };

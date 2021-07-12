@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IAppState } from '../../store/store';
 import { NavLink } from 'react-router-dom';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,17 +16,16 @@ import { setDrawerPanelOpen } from '../../store/ui/actions';
 import { resetUser } from '../../store/user/actions';
 import LogOutMenuItem from '../LogOutMenuItem/LogOutMenuItem';
 
-const navigationItems = [
-  { label: 'Dashboard', slug: 'dashboard', icon: 'space_dashboard' },
-  { label: 'Settings', slug: 'settings', icon: 'settings' }
-];
+interface INavigationProps {
+  navigationItems: any
+}
 
-export default function Navigation() {
+export default function Navigation({ navigationItems }: INavigationProps) {
   const classes = useStyles();
   const theme = useTheme();
 
   const dispatch = useDispatch();
-  const { drawerPanelOpen } = useSelector((state: any) => state.ui);
+  const { drawerPanelOpen } = useSelector((state: IAppState) => state.ui);
 
   const handleLogOutUser = () => {
     dispatch(resetUser());
@@ -40,7 +40,7 @@ export default function Navigation() {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {navigationItems.map((navigationItem, index) => (
+        {navigationItems.map((navigationItem: any) => (
           <NavLink
             key={navigationItem.slug}
             className={classes.menuLinks}

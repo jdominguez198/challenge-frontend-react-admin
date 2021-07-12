@@ -6,7 +6,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-export default function SettingsItemList({ items }: any) {
+interface ISettingsItemListProps {
+  items: any[]
+}
+
+export default function SettingsItemList({ items }: ISettingsItemListProps) {
   return (
     <div>
       <TableContainer component={Paper}>

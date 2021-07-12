@@ -5,6 +5,11 @@ import { useStyles } from '../../hooks/useStyles';
 import TopBar from '../TopBar/TopBar';
 import Navigation from '../Navigation/Navigation';
 
+const navigationItems = [
+  { label: 'Dashboard', slug: 'dashboard', icon: 'space_dashboard' },
+  { label: 'Settings', slug: 'settings', icon: 'settings' }
+];
+
 export default function AdminLayout({ children }: any) {
   const classes = useStyles();
 
@@ -12,7 +17,7 @@ export default function AdminLayout({ children }: any) {
     <div className={classes.root}>
       <CssBaseline />
       <TopBar />
-      <Navigation />
+      <Navigation navigationItems={navigationItems} />
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {children}

@@ -3,26 +3,26 @@ import { UserActions } from '../actions';
 import { RESET_USER, SET_USER } from '../actions/types';
 
 interface IUserProfile {
-  name: string | null;
-  email: string | null;
-  image: string | null;
+  name: string | undefined;
+  email: string | undefined;
+  image: string | undefined;
 }
 
 export interface IUserState {
   userProfile: IUserProfile;
-  token: string | null;
-  tokenExpires: number | null;
+  token: string | undefined;
+  tokenExpires: number | undefined;
   loaded: boolean;
 }
 
 const initialUserState: IUserState = {
   userProfile: {
-    name: null,
-    email: null,
-    image: null
+    name: undefined,
+    email: undefined,
+    image: undefined
   },
-  token: null,
-  tokenExpires: null,
+  token: undefined,
+  tokenExpires: undefined,
   loaded: false
 };
 

@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IAppState } from '../../store/store';
 import { fetchDashboardItems } from '../../store/dummy/actions';
 import DashboardItemsList from '../../components/DashboardItemsList/DashboardItemsList';
 
 function Dashboard() {
-  const { dashboardItems } = useSelector((state: any) => state.dummy);
+  const { dashboardItems } = useSelector((state: IAppState) => state.dummy);
   const dispatch = useDispatch();
 
   useEffect(() => {

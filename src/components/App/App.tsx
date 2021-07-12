@@ -1,13 +1,14 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { IAppState } from '../../store/store';
 
+import AdminLayout from '../AdminLayout/AdminLayout';
 import Dashboard from '../../pages/Dashboard/Dashboard';
 import Settings from '../../pages/Settings/Settings';
-import AdminLayout from '../AdminLayout/AdminLayout';
 import Login from '../../pages/Login/Login';
 
 function App() {
-  const { token } = useSelector((state: any) => state.user);
+  const { token } = useSelector((state: IAppState) => state.user);
 
   const renderGuest =
     <Switch>

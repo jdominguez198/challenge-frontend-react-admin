@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IAppState } from '../../store/store';
 import { fetchSettingsItems } from '../../store/dummy/actions';
 import SettingsItemList from '../../components/SettingsItemList/SettingsItemList';
 
 function Settings() {
-  const { settingsItems } = useSelector((state: any) => state.dummy);
+  const { settingsItems } = useSelector((state: IAppState) => state.dummy);
   const dispatch = useDispatch();
 
   useEffect(() => {
